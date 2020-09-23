@@ -1,0 +1,29 @@
+<HTML>
+ <HEAD>
+  <TITLE>
+   Send Selected Text To My VB App
+  </TITLE>
+ </HEAD>
+  <script language="javascript" type="text/javascript">
+
+// ===================
+// STORE SELECTED TEXT
+// ===================
+   var Selected = window.external.menuArguments.document.selection.createRange().text;
+
+// ========================
+// COPY IT TO THE CLIPBOARD
+// ========================
+   window.clipboardData.setData("Text",Selected);
+
+// ===============
+// SHELL MY VB APP
+// ===============
+   var oShell = new ActiveXObject("WScript.Shell");
+   var prog = "C:\\\\Program Files\\\\V8Software\\\\WebText.exe";
+   oShell.run('"'+prog+'"',1);
+
+   window.close();
+  </script>
+ </BODY>
+</HTML>
